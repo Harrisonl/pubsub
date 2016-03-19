@@ -59,7 +59,7 @@ class StockWatcher
 
   def notify stock, diff
     data = { ticker: stock.ticker, diff: diff, price: stock.price, current_position: stock.current_position}
-    puts "Sending #{data}, on #{stock.trader}"
+    puts "Sending #{data}, to #{stock.trader}"
     @redis_server.publish stock.trader, data.to_json
   end
 end
